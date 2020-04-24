@@ -7,6 +7,8 @@
 #include <VersionHelpers.hpp>
 
 #include <rime_api.h>
+#include <ctime>
+
 
 int expand_ibus_modifier(int m)
 {
