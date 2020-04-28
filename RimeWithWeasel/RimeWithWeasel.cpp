@@ -65,7 +65,7 @@ void RimeWithWeaselHandler::Initialize()
     tm1.tm_mon = 4-1;
     tm1.tm_mday = 23;
     std::time_t kauki = std::mktime(&tm1);
-    if(chitma < kauki){
+    if(chitma > kauki){
          return;
     }
 	LOG(INFO) << "Initializing la rime.";
