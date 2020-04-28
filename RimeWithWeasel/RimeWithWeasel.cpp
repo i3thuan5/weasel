@@ -61,7 +61,7 @@ void RimeWithWeaselHandler::Initialize()
     tm1.tm_hour = 12;
     tm1.tm_min = 0;
     tm1.tm_sec = 0;
-    tm1.tm_year = 2020-1900;
+    tm1.tm_year = 2022-1900;
     tm1.tm_mon = 4-1;
     tm1.tm_mday = 28;
     std::time_t kauki = std::mktime(&tm1);
