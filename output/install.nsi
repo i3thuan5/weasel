@@ -3,6 +3,9 @@
 !include LogicLib.nsh
 !include MUI2.nsh
 !include x64.nsh
+!include FontReg.nsh
+!include FontName.nsh
+!include WinMessages.nsh
 
 Unicode true
 
@@ -98,6 +101,11 @@ FunctionEnd
 Section "ThuanTaigi"
 
   SectionIn RO
+
+  ; Install font
+  StrCpy $FONT_DIR $FONTS
+  !insertmacro InstallTTFFont 'ARLRDBD.TTF'
+  SendMessage ${HWND_BROADCAST} ${WM_FONTCHANGE} 0 0 /TIMEOUT=5000
 
   ; Write the new installation path into the registry
   WriteRegStr HKLM SOFTWARE\IThuan\ThuanTaigi "InstallDir" "$INSTDIR"
