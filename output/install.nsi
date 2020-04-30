@@ -106,7 +106,7 @@ Section "ThuanTaigi"
 
   ; Install font
   StrCpy $FONT_DIR $FONTS
-  !insertmacro InstallTTFFont 'jf-openhuninn-1.1.ttf'
+  !insertmacro InstallTTFFont 'fonts\jf-openhuninn-1.1.ttf'
 
   ; Write the new installation path into the registry
   WriteRegStr HKLM SOFTWARE\IThuan\ThuanTaigi "InstallDir" "$INSTDIR"
