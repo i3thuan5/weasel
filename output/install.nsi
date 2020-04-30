@@ -99,14 +99,18 @@ call_uninstaller:
 done:
 FunctionEnd
 
+; Install font
+Section "Fonts"
+
+  StrCpy $FONT_DIR $FONTS
+  !insertmacro InstallTTFFont 'fonts\jf-openhuninn-1.1.ttf'
+
+SectionEnd
+
 ; The stuff to install
 Section "ThuanTaigi"
 
   SectionIn RO
-
-  ; Install font
-  StrCpy $FONT_DIR $FONTS
-  !insertmacro InstallTTFFont 'fonts\jf-openhuninn-1.1.ttf'
 
   ; Write the new installation path into the registry
   WriteRegStr HKLM SOFTWARE\IThuan\ThuanTaigi "InstallDir" "$INSTDIR"
