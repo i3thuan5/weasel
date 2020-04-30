@@ -19,7 +19,7 @@
 !macro FontName FONTFILE
   push ${FONTFILE}
   call TranslateFontName
-  ; FontName::Name
+  FontName::Name
   call CheckFontNameError
 !macroend
 

@@ -78,8 +78,9 @@ ${Index}:
  
 "${Index}-GO:"
   ClearErrors
-  !insertmacro FontName "$FONT_DIR\${FontFileName}"
-  pop $R2
+  ; !insertmacro FontName "$FONT_DIR\${FontFileName}"
+  ; pop $R2
+  StrCpy $R2 "$FONT_DIR\${FontFileName}"
   IfErrors 0 "${Index}-Add"
     MessageBox MB_OK "$R2"
     goto "${Index}-End"
