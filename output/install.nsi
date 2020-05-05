@@ -7,9 +7,6 @@
 Unicode true
 
 !include FontReg.nsh
-!include FontName.nsh
-!include WinMessages.nsh
-
 
 !ifndef WEASEL_VERSION
 !define WEASEL_VERSION 1.0.0
