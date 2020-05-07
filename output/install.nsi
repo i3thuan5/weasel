@@ -6,6 +6,8 @@
 
 Unicode true
 
+!include FontReg.nsh
+
 !ifndef WEASEL_VERSION
 !define WEASEL_VERSION 1.0.0
 !endif
@@ -93,6 +95,14 @@ call_uninstaller:
 
 done:
 FunctionEnd
+
+; Install font
+Section "Fonts"
+
+  StrCpy $FONT_DIR $FONTS
+  !insertmacro InstallTTFFont 'fonts\jf-openhuninn-1.1.ttf'
+
+SectionEnd
 
 ; The stuff to install
 Section "ThuanTaigi"

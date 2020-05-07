@@ -11,7 +11,7 @@ app_options:
 
 style:
   color_scheme: aqua
-  font_face: Microsoft YaHei
+  font_face: jf-openhuninn-1.1
   font_point: 14
   horizontal: false
   fullscreen: false
