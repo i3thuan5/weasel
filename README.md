@@ -1,6 +1,11 @@
 ﻿【小狼毫】輸入法
 ================
 
+```
+$ convert resource/png/en.png -define icon:auto-resize="16,32,48,64,128,256" resource/en.ico
+$ convert resource/png/zh.png -define icon:auto-resize="16,32,48,64,128,256" resource/zh.ico
+```
+
 基於 中州韻輸入法引擎／Rime Input Method Engine 等開源技術
 
 式恕堂 版權所無
