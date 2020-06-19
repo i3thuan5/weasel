@@ -141,7 +141,7 @@ void UIImpl::Hide()
 void UIImpl::ShowWithTimeout(DWORD millisec)
 {
 	if (!panel.IsWindow()) return;
-	DLOG(INFO) << "ShowWithTimeout: " << millisec;
+	LOG(INFO) << "ShowWithTimeout: " << millisec;
 	panel.ShowWindow(SW_SHOWNA);
 	SetTimer(panel.m_hWnd, AUTOHIDE_TIMER, millisec, &UIImpl::OnTimer);
 	timer = UINT_PTR(this);
@@ -154,7 +154,7 @@ VOID CALLBACK UIImpl::OnTimer(
   _In_  DWORD dwTime
 )
 {
-	DLOG(INFO) << "OnTimer:";
+	LOG(INFO) << "OnTimer:";
 	KillTimer(hwnd, idEvent);
 	UIImpl* self = (UIImpl*)timer;
 	timer = 0;

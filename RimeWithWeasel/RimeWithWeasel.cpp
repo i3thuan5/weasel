@@ -88,7 +88,7 @@ UINT RimeWithWeaselHandler::FindSession(UINT session_id)
 {
 	if (m_disabled) return 0;
 	Bool found = RimeFindSession(session_id);
-	DLOG(INFO) << "Find session: session_id = " << session_id << ", found = " << found;
+	LOG(INFO) << "Find session: session_id = " << session_id << ", found = " << found;
 	return found ? session_id : 0;
 }
 
@@ -96,12 +96,12 @@ UINT RimeWithWeaselHandler::AddSession(LPWSTR buffer, EatLine eat)
 {
 	if (m_disabled)
 	{
-		DLOG(INFO) << "Trying to resume service.";
+		LOG(INFO) << "Trying to resume service.";
 		EndMaintenance();
 		if (m_disabled) return 0;
 	}
 	UINT session_id = RimeCreateSession();
-	DLOG(INFO) << "Add session: created session_id = " << session_id;
+	LOG(INFO) << "Add session: created session_id = " << session_id;
 	_ReadClientInfo(session_id, buffer);
 	// show session's welcome message :-) if any
 	if (eat) {
@@ -116,7 +116,7 @@ UINT RimeWithWeaselHandler::RemoveSession(UINT session_id)
 {
 	if (m_ui) m_ui->Hide();
 	if (m_disabled) return 0;
-	DLOG(INFO) << "Remove session: session_id = " << session_id;
+	LOG(INFO) << "Remove session: session_id = " << session_id;
 	// TODO: force committing? otherwise current composition would be lost
 	RimeDestroySession(session_id);
 	m_active_session = 0;
@@ -133,7 +133,7 @@ namespace ibus
 
 BOOL RimeWithWeaselHandler::ProcessKeyEvent(weasel::KeyEvent keyEvent, UINT session_id, EatLine eat)
 {
-	DLOG(INFO) << "Process key event: keycode = " << keyEvent.keycode << ", mask = " << keyEvent.mask
+	LOG(INFO) << "Process key event: keycode = " << keyEvent.keycode << ", mask = " << keyEvent.mask
 		 << ", session_id = " << session_id;
 	if (m_disabled) return FALSE;
 	Bool handled = RimeProcessKey(session_id, keyEvent.keycode, expand_ibus_modifier(keyEvent.mask));
@@ -145,7 +145,7 @@ BOOL RimeWithWeaselHandler::ProcessKeyEvent(weasel::KeyEvent keyEvent, UINT sess
 
 void RimeWithWeaselHandler::CommitComposition(UINT session_id)
 {
-	DLOG(INFO) << "Commit composition: session_id = " << session_id;
+	LOG(INFO) << "Commit composition: session_id = " << session_id;
 	if (m_disabled) return;
 	RimeCommitComposition(session_id);
 	_UpdateUI(session_id);
@@ -154,7 +154,7 @@ void RimeWithWeaselHandler::CommitComposition(UINT session_id)
 
 void RimeWithWeaselHandler::ClearComposition(UINT session_id)
 {
-	DLOG(INFO) << "Clear composition: session_id = " << session_id;
+	LOG(INFO) << "Clear composition: session_id = " << session_id;
 	if (m_disabled) return;
 	RimeClearComposition(session_id);
 	_UpdateUI(session_id);
@@ -163,7 +163,7 @@ void RimeWithWeaselHandler::ClearComposition(UINT session_id)
 
 void RimeWithWeaselHandler::FocusIn(DWORD client_caps, UINT session_id)
 {
-	DLOG(INFO) << "Focus in: session_id = " << session_id << ", client_caps = " << client_caps;
+	LOG(INFO) << "Focus in: session_id = " << session_id << ", client_caps = " << client_caps;
 	if (m_disabled) return;
 	_UpdateUI(session_id);
 	m_active_session = session_id;
@@ -171,14 +171,14 @@ void RimeWithWeaselHandler::FocusIn(DWORD client_caps, UINT session_id)
 
 void RimeWithWeaselHandler::FocusOut(DWORD param, UINT session_id)
 {
-	DLOG(INFO) << "Focus out: session_id = " << session_id;
+	LOG(INFO) << "Focus out: session_id = " << session_id;
 	if (m_ui) m_ui->Hide();
 	m_active_session = 0;
 }
 
 void RimeWithWeaselHandler::UpdateInputPosition(RECT const& rc, UINT session_id)
 {
-	DLOG(INFO) << "Update input position: (" << rc.left << ", " << rc.top
+	LOG(INFO) << "Update input position: (" << rc.left << ", " << rc.top
 		<< "), session_id = " << session_id << ", m_active_session = " << m_active_session;
 	if (m_ui) m_ui->UpdateInputPosition(rc);
 	if (m_disabled) return;
@@ -242,7 +242,7 @@ void RimeWithWeaselHandler::_ReadClientInfo(UINT session_id, LPWSTR buffer)
 			AppOptions& options(m_app_options[app_name]);
 			std::for_each(options.begin(), options.end(), [session_id](std::pair<const std::string, bool> &pair)
 			{
-				DLOG(INFO) << "set app option: " << pair.first << " = " << pair.second;
+				LOG(INFO) << "set app option: " << pair.first << " = " << pair.second;
 				RimeSetOption(session_id, pair.first.c_str(), Bool(pair.second));
 			});
 		}
