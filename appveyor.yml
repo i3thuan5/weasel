@@ -10,9 +10,6 @@ init:
   - git config --global core.autocrlf true
 
 branches:
-  only:
-    - master
-    - kai_keypad_sooji_tuieng
 
 clone_depth: 1
 pull_requests:
