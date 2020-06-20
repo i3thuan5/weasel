@@ -9,8 +9,6 @@ init:
   - git --version
   - git config --global core.autocrlf true
 
-branches:
-
 clone_depth: 1
 pull_requests:
   do_not_increment_build_number: true
