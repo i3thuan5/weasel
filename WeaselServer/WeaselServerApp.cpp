@@ -19,11 +19,6 @@ int WeaselServerApp::Run()
 	if (!m_server.Start())
 		return -1;
 
-	// ThuanTaigi: Mài用Sparkle檢查更新
-	//win_sparkle_set_appcast_url("http://localhost:8000/weasel/update/appcast.xml");
-	// win_sparkle_set_registry_path("Software\\Ithuan\\ThuanTaigi\\Updates");
-	// win_sparkle_init();
-
 	m_ui.Create(m_server.GetHWnd());
 
 	tray_icon.Create(m_server.GetHWnd());
@@ -39,9 +34,6 @@ int WeaselServerApp::Run()
 	m_handler->Finalize();
 	m_ui.Destroy();
 	tray_icon.RemoveIcon();
-
-	// ThuanTaigi: Mài用Sparkle檢查更新
-	// win_sparkle_cleanup();
 
 	return ret;
 }

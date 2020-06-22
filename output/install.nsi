@@ -51,7 +51,7 @@ RequestExecutionLevel admin
 
 ; Pages
 
-!insertmacro MUI_PAGE_LICENSE "LICENSE.txt"
+!insertmacro MUI_PAGE_LICENSE "ITHUAN_TIAUKHUAN.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
@@ -129,6 +129,7 @@ Section "ThuanTaigi"
 
 program_files:
   File "LICENSE.txt"
+  File "ITHUAN_TIAUKHUAN.txt"
   File /nonfatal "README.txt"
   File "7-zip-license.txt"
   File "7z.dll"
@@ -158,7 +159,6 @@ program_files:
   File "WeaselServer.exe"
   File "WeaselSetup.exe"
   File "rime.dll"
-  File "WinSparkle.dll"
   ; shared data files
   SetOutPath $INSTDIR\data
   File "data\*.yaml"

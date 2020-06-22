@@ -13,6 +13,7 @@ set download_archive=%rime_variant%-%rime_version%-win32.zip
 appveyor DownloadFile https://github.com/rime/librime/releases/download/%rime_version%/%download_archive%
 7z x %download_archive% * -olibrime\ | find "ing archive"
 copy /Y librime\dist\include\rime_*.h include\
+mkdir lib\
 copy /Y librime\dist\lib\rime.lib lib\
 copy /Y librime\dist\lib\rime.dll output\
 if not exist output\data\opencc mkdir output\data\opencc
