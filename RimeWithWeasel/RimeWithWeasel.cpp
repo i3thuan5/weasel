@@ -61,8 +61,8 @@ void RimeWithWeaselHandler::Initialize()
     tm1.tm_min = 59;
     tm1.tm_sec = 0;
     tm1.tm_year = 2020-1900;
-    tm1.tm_mon = 6-1;
-    tm1.tm_mday = 30;
+    tm1.tm_mon = 8-1;
+    tm1.tm_mday = 31;
     std::time_t kauki = std::mktime(&tm1);
     if(chitma > kauki){
     	return;
