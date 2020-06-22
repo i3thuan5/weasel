@@ -159,7 +159,6 @@ program_files:
   File "WeaselServer.exe"
   File "WeaselSetup.exe"
   File "rime.dll"
-  File "WinSparkle.dll"
   ; shared data files
   SetOutPath $INSTDIR\data
   File "data\*.yaml"

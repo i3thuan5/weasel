@@ -9,11 +9,6 @@ init:
   - git --version
   - git config --global core.autocrlf true
 
-branches:
-  only:
-    - master
-    - kai_keypad_sooji_tuieng
-
 clone_depth: 1
 pull_requests:
   do_not_increment_build_number: true
@@ -48,15 +43,15 @@ artifacts:
   - path: output\archives\ThuanTaigi-Windows-v%WEASEL_VERSION%.%WEASEL_BUILD%-%GIT_HASH%-%BUILD_TIMESTAMP%-installer.exe
     name: ThuanTaigi
 
-deploy:
-  release: ThuanTaigi-Windows-v%WEASEL_VERSION%.%WEASEL_BUILD%-%GIT_HASH%-%BUILD_TIMESTAMP%
-  description: 'ThuanTaigi-Windows Release'
-  provider: GitHub
-  auth_token:
-    secure: QYElUlaZayQxjLn83N/BwkuePDbwhXf0cI6q0BqimbNQ+2DCU4WhDjyehZ6Jm1Dq
-  draft: true
-  prerelease: false
-  force_update: true
+#deploy:
+#  release: ThuanTaigi-Windows-v%WEASEL_VERSION%.%WEASEL_BUILD%-%GIT_HASH%-%BUILD_TIMESTAMP%
+#  description: 'ThuanTaigi-Windows Release'
+#  provider: GitHub
+#  auth_token:
+#    secure: QYElUlaZayQxjLn83N/BwkuePDbwhXf0cI6q0BqimbNQ+2DCU4WhDjyehZ6Jm1Dq
+#  draft: true
+#  prerelease: false
+#  force_update: true
 
 # on_finish:
 #   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
