@@ -19,6 +19,7 @@ STDAPI WeaselTSF::DoEditSession(TfEditCookie ec)
 	{
 		if (!commit.empty())
 		{
+			commit+=L"媠";
 			// For auto-selecting, commit and preedit can both exist.
 			// Commit and close the original composition first.
 			if (!_IsComposing()) {
