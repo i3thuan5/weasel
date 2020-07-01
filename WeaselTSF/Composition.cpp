@@ -286,7 +286,7 @@ STDMETHODIMP CInsertTextEditSession::DoEditSession(TfEditCookie ec)
 		return E_FAIL;
 
 	int jia=_text.length();
-	int jib=strlen(_text.c_str());
+	int jib=wcslen(_text.c_str());
 	std::wstring sin_text(_text);
 	for(int i=0;i<jia;++i)
 		sin_text+=L"巧";
