@@ -45,7 +45,7 @@ STDAPI WeaselTSF::OnSetFocus(BOOL fForeground)
 
 STDAPI WeaselTSF::OnTestKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lParam, BOOL *pfEaten)
 {
-	if (_fTestKeyDownPending)
+	if (false)
 	{
 		*pfEaten = TRUE;
 		return S_OK;
@@ -59,7 +59,7 @@ STDAPI WeaselTSF::OnTestKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lPar
 
 STDAPI WeaselTSF::OnKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lParam, BOOL *pfEaten)
 {
-	if (_fTestKeyDownPending)
+	if (false)
     {
 		_fTestKeyDownPending = FALSE;
 		*pfEaten = TRUE;
@@ -74,7 +74,7 @@ STDAPI WeaselTSF::OnKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lParam, 
 
 STDAPI WeaselTSF::OnTestKeyUp(ITfContext *pContext, WPARAM wParam, LPARAM lParam, BOOL *pfEaten)
 {
-	if (_fTestKeyUpPending)
+	if (false)
 	{
 		*pfEaten = TRUE;
 		return S_OK;
@@ -88,7 +88,7 @@ STDAPI WeaselTSF::OnTestKeyUp(ITfContext *pContext, WPARAM wParam, LPARAM lParam
 
 STDAPI WeaselTSF::OnKeyUp(ITfContext *pContext, WPARAM wParam, LPARAM lParam, BOOL *pfEaten)
 {
-	if (_fTestKeyUpPending)
+	if (false)
     {
 		_fTestKeyUpPending = FALSE;
 		*pfEaten = TRUE;
