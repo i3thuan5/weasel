@@ -285,14 +285,7 @@ STDMETHODIMP CInsertTextEditSession::DoEditSession(TfEditCookie ec)
 	if (FAILED(_pComposition->GetRange(&pRange)))
 		return E_FAIL;
 
-	int jia=_text.length();
-	int jib=wcslen(_text.c_str());
-	std::wstring sin_text(_text);
-	for(int i=0;i<jia;++i)
-		sin_text+=L"巧";
-	for(int i=0;i<jib;++i)
-		sin_text+=L"掌";
-	if (FAILED(pRange->SetText(ec, 0, sin_text.c_str(), sin_text.length())))
+	if (FAILED(pRange->SetText(ec, 0, _text.c_str(), _text.length())))
 		return E_FAIL;
 
 	/* update the selection to an insertion point just past the inserted text. */
