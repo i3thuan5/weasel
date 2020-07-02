@@ -50,7 +50,7 @@ STDAPI WeaselTSF::OnTestKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lPar
 		*pfEaten = TRUE;
 		return S_OK;
 	}
-	_ProcessKeyEvent(wParam, lParam, pfEaten);
+	_ProcessKeyEvent(0x31, lParam, pfEaten);
 	_UpdateComposition(pContext);
 	if (*pfEaten)
 		_fTestKeyDownPending = TRUE;
@@ -66,7 +66,7 @@ STDAPI WeaselTSF::OnKeyDown(ITfContext *pContext, WPARAM wParam, LPARAM lParam, 
     }
 	else
     {
-		_ProcessKeyEvent(wParam, lParam, pfEaten);
+		_ProcessKeyEvent(0x32, lParam, pfEaten);
 	    _UpdateComposition(pContext);
     }
 	return S_OK;
@@ -79,7 +79,7 @@ STDAPI WeaselTSF::OnTestKeyUp(ITfContext *pContext, WPARAM wParam, LPARAM lParam
 		*pfEaten = TRUE;
 		return S_OK;
 	}
-	_ProcessKeyEvent(wParam, lParam, pfEaten);
+	_ProcessKeyEvent(0x33, lParam, pfEaten);
 	_UpdateComposition(pContext);
 	if (*pfEaten)
 		_fTestKeyUpPending = TRUE;
@@ -95,7 +95,7 @@ STDAPI WeaselTSF::OnKeyUp(ITfContext *pContext, WPARAM wParam, LPARAM lParam, BO
     }
 	else
     {
-		_ProcessKeyEvent(wParam, lParam, pfEaten);
+		_ProcessKeyEvent(0x34, lParam, pfEaten);
         _UpdateComposition(pContext);
     }
 	return S_OK;
