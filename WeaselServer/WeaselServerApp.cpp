@@ -41,7 +41,6 @@ int WeaselServerApp::Run()
 void WeaselServerApp::SetupMenuHandlers()
 {
 	std::wstring dir(install_dir());
-	m_server.AddMenuHandler(ID_WEASELTRAY_OPEN, std::bind(execute, dir + L"\\WeaselServer.exe", std::wstring(L"")));
 	m_server.AddMenuHandler(ID_WEASELTRAY_QUIT, [this] { return m_server.Stop() == 0; });
 	m_server.AddMenuHandler(ID_WEASELTRAY_DEPLOY, std::bind(execute, dir + L"\\WeaselDeployer.exe", std::wstring(L"/deploy")));
 	// m_server.AddMenuHandler(ID_WEASELTRAY_SETTINGS, std::bind(execute, dir + L"\\WeaselDeployer.exe", std::wstring()));
