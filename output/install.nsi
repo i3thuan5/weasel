@@ -215,9 +215,9 @@ Section "Start Menu Shortcuts"
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】說明書.lnk" "$INSTDIR\README.txt"
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】輸入法設定.lnk" "$INSTDIR\WeaselDeployer.exe" "" "$SYSDIR\shell32.dll" 21
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】使用者詞典管理.lnk" "$INSTDIR\WeaselDeployer.exe" "/dict" "$SYSDIR\shell32.dll" 6
-  CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】使用者資料更新.lnk" "$INSTDIR\WeaselDeployer.exe" "/sync" "$SYSDIR\shell32.dll" 26
-  CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】重起動.lnk" "$INSTDIR\WeaselDeployer.exe" "/deploy" "$SYSDIR\shell32.dll" 144
-  CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】執行輸入法服務.lnk" "$INSTDIR\WeaselServer.exe" "" "$INSTDIR\WeaselServer.exe" 0
+  ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】使用者資料更新.lnk" "$INSTDIR\WeaselDeployer.exe" "/sync" "$SYSDIR\shell32.dll" 26
+  ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】重起動.lnk" "$INSTDIR\WeaselDeployer.exe" "/deploy" "$SYSDIR\shell32.dll" 144
+  CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】輸入法服務開--開.lnk" "$INSTDIR\WeaselServer.exe" "" "$INSTDIR\WeaselServer.exe" 0
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】使用者設定ê所在.lnk" "$INSTDIR\WeaselServer.exe" "/userdir" "$SYSDIR\shell32.dll" 126
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】輸入法設定ê所在.lnk" "$INSTDIR\WeaselServer.exe" "/weaseldir" "$SYSDIR\shell32.dll" 19
   ; CreateShortCut "$SMPROGRAMS\意傳台語輸入法\【意傳台語輸入法】檢查新版本.lnk" "$INSTDIR\WeaselServer.exe" "/update" "$SYSDIR\shell32.dll" 13
