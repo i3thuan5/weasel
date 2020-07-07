@@ -241,8 +241,8 @@ void WeaselPanel::DoPaint(CDCHandle dc)
 	bool drawn = false;
 
 	// draw preedit string
-	if (!m_layout->IsInlinePreedit())
-		drawn |= _DrawPreedit(m_ctx.preedit, dc, m_layout->GetPreeditRect());
+	// if (!m_layout->IsInlinePreedit())
+	// 	drawn |= _DrawPreedit(m_ctx.preedit, dc, m_layout->GetPreeditRect());
 	
 	// draw auxiliary string
 	drawn |= _DrawPreedit(m_ctx.aux, dc, m_layout->GetAuxiliaryRect());
