@@ -137,14 +137,14 @@ bool WeaselPanel::_DrawPreedit(Text const& text, CDCHandle dc, CRect const& rc)
 				dc.SetBkColor(m_style.back_color);
 				x += (selEnd.cx - selStart.cx);
 			}
-			if (range.end < static_cast<int>(t.length()))
-			{
-				// zzz[yyy]xxx
-				x += m_style.hilite_spacing;
-				std::wstring str_after(t.substr(range.end));
-				CRect rc_after(x, rc.top, rc.right, rc.bottom);
-				_TextOut(dc, x, rc.top, rc_after, str_after.c_str(), str_after.length());
-			}
+			// if (range.end < static_cast<int>(t.length()))
+			// {
+			// 	// zzz[yyy]xxx
+			// 	x += m_style.hilite_spacing;
+			// 	std::wstring str_after(t.substr(range.end));
+			// 	CRect rc_after(x, rc.top, rc.right, rc.bottom);
+			// 	_TextOut(dc, x, rc.top, rc_after, str_after.c_str(), str_after.length());
+			// }
 		}
 		else
 		{
@@ -241,8 +241,8 @@ void WeaselPanel::DoPaint(CDCHandle dc)
 	bool drawn = false;
 
 	// draw preedit string
-	// if (!m_layout->IsInlinePreedit())
-	// 	drawn |= _DrawPreedit(m_ctx.preedit, dc, m_layout->GetPreeditRect());
+	if (!m_layout->IsInlinePreedit())
+		drawn |= _DrawPreedit(m_ctx.preedit, dc, m_layout->GetPreeditRect());
 	
 	// draw auxiliary string
 	drawn |= _DrawPreedit(m_ctx.aux, dc, m_layout->GetAuxiliaryRect());
