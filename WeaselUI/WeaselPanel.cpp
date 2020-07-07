@@ -125,26 +125,26 @@ bool WeaselPanel::_DrawPreedit(Text const& text, CDCHandle dc, CRect const& rc)
 				_TextOut(dc, x, rc.top, rc_before, str_before.c_str(), str_before.length());
 				x += selStart.cx + m_style.hilite_spacing;
 			}
-			// {
-			// 	// zzz[yyy]
-			// 	std::wstring str_highlight(t.substr(range.start, range.end - range.start));
-			// 	CRect rc_hi(x, rc.top, x + (selEnd.cx - selStart.cx), rc.bottom);
-			// 	_HighlightText(dc, rc_hi, m_style.hilited_back_color);
-			// 	dc.SetTextColor(m_style.hilited_text_color);
-			// 	dc.SetBkColor(m_style.hilited_back_color);
-			// 	_TextOut(dc, x, rc.top, rc_hi, str_highlight.c_str(), str_highlight.length());
-			// 	dc.SetTextColor(m_style.text_color);
-			// 	dc.SetBkColor(m_style.back_color);
-			// 	x += (selEnd.cx - selStart.cx);
-			// }
-			// if (range.end < static_cast<int>(t.length()))
-			// {
-			// 	// zzz[yyy]xxx
-			// 	x += m_style.hilite_spacing;
-			// 	std::wstring str_after(t.substr(range.end));
-			// 	CRect rc_after(x, rc.top, rc.right, rc.bottom);
-			// 	_TextOut(dc, x, rc.top, rc_after, str_after.c_str(), str_after.length());
-			// }
+			{
+				// zzz[yyy]
+				std::wstring str_highlight(t.substr(range.start, range.end - range.start));
+				CRect rc_hi(x, rc.top, x + (selEnd.cx - selStart.cx), rc.bottom);
+				_HighlightText(dc, rc_hi, m_style.hilited_back_color);
+				dc.SetTextColor(m_style.hilited_text_color);
+				dc.SetBkColor(m_style.hilited_back_color);
+				_TextOut(dc, x, rc.top, rc_hi, str_highlight.c_str(), str_highlight.length());
+				dc.SetTextColor(m_style.text_color);
+				dc.SetBkColor(m_style.back_color);
+				x += (selEnd.cx - selStart.cx);
+			}
+			if (range.end < static_cast<int>(t.length()))
+			{
+				// zzz[yyy]xxx
+				x += m_style.hilite_spacing;
+				std::wstring str_after(t.substr(range.end));
+				CRect rc_after(x, rc.top, rc.right, rc.bottom);
+				_TextOut(dc, x, rc.top, rc_after, str_after.c_str(), str_after.length());
+			}
 		}
 		else
 		{
