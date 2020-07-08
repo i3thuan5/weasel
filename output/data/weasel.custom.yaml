@@ -1,0 +1,16 @@
+# Weasel for Windows
+# 輸入介面設定
+# 位置：%APPDATA%\Rime\squirrel.custom.yaml
+# 參考：https://github.com/rime/artworks/tree/master/squirrel-color-schemes
+
+patch:
+  "style/color_scheme": brisk
+  "style/inline_preedit": false
+  "style/corner_radius": 4
+  "style/line_spacing": 4
+  "style/spacing": 4
+  "style/candidate_format": '%c. %@'
+  "style/font_face": 'jf-openhuninn-1.1'
+  "style/font_point": 14
+  "preset_color_schemes/brisk/border_color": 0xcccccc
+  "preset_color_schemes/brisk/text_color": 0x8f8f8f
