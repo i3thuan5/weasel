@@ -12,5 +12,6 @@ patch:
   "style/candidate_format": '%c. %@'
   "style/font_face": 'jf-openhuninn-1.1'
   "style/font_point": 14
+  "style/layout/hilite_spacing": 8
   "preset_color_schemes/brisk/border_color": 0xcccccc
   "preset_color_schemes/brisk/text_color": 0x8f8f8f
