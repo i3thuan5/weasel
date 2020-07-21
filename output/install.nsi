@@ -203,7 +203,6 @@ program_files:
   Exec "$INSTDIR\WeaselServer.exe"
 
   ; Prompt reboot
-  StrCmp $0 "Upgrade" 0 +2
   SetRebootFlag true
 
 SectionEnd
