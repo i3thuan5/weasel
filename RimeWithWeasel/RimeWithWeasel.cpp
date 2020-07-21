@@ -391,9 +391,9 @@ bool RimeWithWeaselHandler::_ShowMessage(weasel::Context& ctx, weasel::Status& s
 	bool show_icon = false;
 	if (m_message_type == "deploy") {
 		if (m_message_value == "start")
-			tips = L"正在部署 ThuanTaigi";
+			tips = L"Tng-tih 設定 ThuanTaigi，請小等。若超過5分鐘，請重鬥exe。";
 		else if (m_message_value == "success")
-			tips = L"部署完成";
+			tips = L"ThuanTaigi 設定完成";
 		else if (m_message_value == "failure")
 			tips = L"有錯誤，請查看紀錄 %TEMP%\\IThuan.ThuanTaigi.*.INFO";
 	}
