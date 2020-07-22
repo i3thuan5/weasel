@@ -422,7 +422,7 @@ bool RimeWithWeaselHandler::_ShowMessage(weasel::Context& ctx, weasel::Status& s
 		return m_ui->IsCountingDown();
 
 	m_ui->Update(ctx, status);
-	m_ui->ShowWithTimeout(1200 + 200 * tips.length());
+	m_ui->ShowWithTimeout(1200 + 500 * tips.length());
 	return true;
 }
 
