@@ -1,7 +1,15 @@
 Weasel for Rime
 ================
 
-# Changelog án-nuá senn
+# Khai-huat
+
+## Windows icon
+```
+$ convert resource/png/en.png -define icon:auto-resize="16,32,48,64,128,256" resource/en.ico
+$ convert resource/png/zh.png -define icon:auto-resize="16,32,48,64,128,256" resource/zh.ico
+```
+
+## Changelog
 ```
 github_changelog_generator \
     --user i3thuan5 \
