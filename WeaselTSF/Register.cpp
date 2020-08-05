@@ -116,8 +116,6 @@ void UnregisterProfiles()
 			TEXTSERVICE_LANGID,
 			c_guidProfile,
 			0);
-		if (FAILED(hr))
-			return FALSE;
 	}
 	else
 	{
