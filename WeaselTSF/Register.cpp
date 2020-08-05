@@ -104,15 +104,28 @@ void UnregisterProfiles()
 	ITfInputProcessorProfiles *pInputProcessProfiles;
 	HRESULT hr;
 
-	hr = CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_INPROC_SERVER,
-		IID_ITfInputProcessorProfiles, (void **)&pInputProcessProfiles);
-	if (FAILED(hr))
-		return;
+	if (IsWindows8OrGreater())
+	{
+		hr = pInputProcessorProfileMgr->UnregisterProfile(
+			c_clsidTextService,
+			TEXTSERVICE_LANGID,
+			c_guidProfile,
+			0);
+		if (FAILED(hr))
+			return FALSE;
+	}
+	else
+	{
+		hr = CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_INPROC_SERVER,
+			IID_ITfInputProcessorProfiles, (void **)&pInputProcessProfiles);
+		if (FAILED(hr))
+			return;
 
-	pInputProcessProfiles->SubstituteKeyboardLayout(
-		c_clsidTextService, TEXTSERVICE_LANGID, c_guidProfile, NULL);
-	pInputProcessProfiles->Unregister(c_clsidTextService);
-	pInputProcessProfiles->Release();
+		pInputProcessProfiles->SubstituteKeyboardLayout(
+			c_clsidTextService, TEXTSERVICE_LANGID, c_guidProfile, NULL);
+		pInputProcessProfiles->Unregister(c_clsidTextService);
+		pInputProcessProfiles->Release();
+	}
 }
 
 BOOL RegisterCategories()
