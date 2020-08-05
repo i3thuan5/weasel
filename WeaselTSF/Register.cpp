@@ -106,6 +106,11 @@ void UnregisterProfiles()
 
 	if (IsWindows8OrGreater())
 	{
+		CComPtr<ITfInputProcessorProfileMgr> pInputProcessorProfileMgr;
+		hr = pInputProcessorProfileMgr.CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_ALL);
+		if (FAILED(hr))
+			return FALSE;
+
 		hr = pInputProcessorProfileMgr->UnregisterProfile(
 			c_clsidTextService,
 			TEXTSERVICE_LANGID,
