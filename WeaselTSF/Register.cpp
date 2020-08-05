@@ -65,6 +65,8 @@ BOOL RegisterProfiles()
 			0,
 			TRUE,
 			0);
+		if (FAILED(hr))
+			return FALSE;
 	}
 	else
 	{
