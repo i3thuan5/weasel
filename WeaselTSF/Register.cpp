@@ -109,7 +109,7 @@ void UnregisterProfiles()
 		CComPtr<ITfInputProcessorProfileMgr> pInputProcessorProfileMgr;
 		hr = pInputProcessorProfileMgr.CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_ALL);
 		if (FAILED(hr))
-			return FALSE;
+			return;
 
 		hr = pInputProcessorProfileMgr->UnregisterProfile(
 			c_clsidTextService,
