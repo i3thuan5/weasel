@@ -176,6 +176,27 @@ void UnregisterCategories()
 		return;
 
 	hr = pCategoryMgr->UnregisterCategory(c_clsidTextService, GUID_TFCAT_TIP_KEYBOARD, c_clsidTextService);
+	if (hr != S_OK)
+		goto UnregisterExit;
+
+	hr = pCategoryMgr->UnregisterCategory(c_clsidTextService, GUID_TFCAT_TIPCAP_UIELEMENTENABLED, c_clsidTextService);
+	if (hr != S_OK)
+		goto UnregisterExit;
+
+	hr = pCategoryMgr->UnregisterCategory(c_clsidTextService, GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT, c_clsidTextService);
+	if (hr != S_OK)
+		goto UnregisterExit;
+
+	if (IsWindows8OrGreater())
+	{
+		hr = pCategoryMgr->UnregisterCategory(c_clsidTextService, GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT, c_clsidTextService);
+		if (hr != S_OK)
+			goto UnregisterExit;
+
+		hr = pCategoryMgr->UnregisterCategory(c_clsidTextService, GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT, c_clsidTextService);
+	}
+
+UnregisterExit:
 	pCategoryMgr->Release();
 }
 
