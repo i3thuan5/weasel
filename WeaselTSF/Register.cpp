@@ -101,7 +101,6 @@ BOOL RegisterProfiles()
 
 void UnregisterProfiles()
 {
-	ITfInputProcessorProfiles *pInputProcessProfiles;
 	HRESULT hr;
 
 	if (IsWindows8OrGreater())
@@ -119,19 +118,20 @@ void UnregisterProfiles()
 	}
 	else
 	{
+		CComPtr<ITfInputProcessorProfiles> pInputProcessorProfiles;
 		hr = CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_INPROC_SERVER,
-			IID_ITfInputProcessorProfiles, (void **)&pInputProcessProfiles);
+			IID_ITfInputProcessorProfiles, (void **)&pInputProcessorProfiles);
 		if (FAILED(hr))
 			return;
 
-		pInputProcessProfiles->SubstituteKeyboardLayout(
+		pInputProcessorProfiles->SubstituteKeyboardLayout(
 			c_clsidTextService, TEXTSERVICE_LANGID, c_guidProfile, NULL);
 		pInputProcessorProfiles->RemoveLanguageProfile(
 			c_clsidTextService,
 			TEXTSERVICE_LANGID,
 			c_guidProfile);
-		pInputProcessProfiles->Unregister(c_clsidTextService);
-		pInputProcessProfiles->Release();
+		pInputProcessorProfiles->Unregister(c_clsidTextService);
+		pInputProcessorProfiles->Release();
 	}
 }
 
