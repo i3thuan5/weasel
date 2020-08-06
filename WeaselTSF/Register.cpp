@@ -126,6 +126,10 @@ void UnregisterProfiles()
 
 		pInputProcessProfiles->SubstituteKeyboardLayout(
 			c_clsidTextService, TEXTSERVICE_LANGID, c_guidProfile, NULL);
+		pInputProcessorProfiles->RemoveLanguageProfile(
+			c_clsidTextService,
+			TEXTSERVICE_LANGID,
+			c_guidProfile);
 		pInputProcessProfiles->Unregister(c_clsidTextService);
 		pInputProcessProfiles->Release();
 	}
