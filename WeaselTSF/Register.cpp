@@ -118,7 +118,7 @@ void UnregisterProfiles()
 	}
 	else
 	{
-		CComPtr<ITfInputProcessorProfiles> pInputProcessorProfiles;
+		ITfInputProcessorProfiles pInputProcessorProfiles;
 		hr = CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_INPROC_SERVER,
 			IID_ITfInputProcessorProfiles, (void **)&pInputProcessorProfiles);
 		if (FAILED(hr))
