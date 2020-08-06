@@ -118,20 +118,20 @@ void UnregisterProfiles()
 	}
 	else
 	{
-		ITfInputProcessorProfiles pInputProcessorProfiles;
+		ITfInputProcessorProfiles pInputProcessProfiles;
 		hr = CoCreateInstance(CLSID_TF_InputProcessorProfiles, NULL, CLSCTX_INPROC_SERVER,
-			IID_ITfInputProcessorProfiles, (void **)&pInputProcessorProfiles);
+			IID_ITfInputProcessorProfiles, (void **)&pInputProcessProfiles);
 		if (FAILED(hr))
 			return;
 
-		pInputProcessorProfiles->SubstituteKeyboardLayout(
+		pInputProcessProfiles->SubstituteKeyboardLayout(
 			c_clsidTextService, TEXTSERVICE_LANGID, c_guidProfile, NULL);
-		pInputProcessorProfiles->RemoveLanguageProfile(
+		pInputProcessProfiles->RemoveLanguageProfile(
 			c_clsidTextService,
 			TEXTSERVICE_LANGID,
 			c_guidProfile);
-		pInputProcessorProfiles->Unregister(c_clsidTextService);
-		pInputProcessorProfiles->Release();
+		pInputProcessProfiles->Unregister(c_clsidTextService);
+		pInputProcessProfiles->Release();
 	}
 }
 
