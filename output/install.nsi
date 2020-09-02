@@ -164,10 +164,6 @@ program_files:
   File "data\*.yaml"
   File /nonfatal "data\*.txt"
   File /nonfatal "data\*.gram"
-  ; opencc data files
-  SetOutPath $INSTDIR\data\opencc
-  File "data\opencc\*.json"
-  File "data\opencc\*.ocd"
   ; images
   SetOutPath $INSTDIR\data\preview
   File "data\preview\*.png"
@@ -242,11 +238,9 @@ Section "Uninstall"
 
   ; Remove files and uninstaller
   SetOutPath $TEMP
-  Delete /REBOOTOK "$INSTDIR\data\opencc\*.*"
   Delete /REBOOTOK "$INSTDIR\data\preview\*.*"
   Delete /REBOOTOK "$INSTDIR\data\*.*"
   Delete /REBOOTOK "$INSTDIR\*.*"
-  RMDir /REBOOTOK "$INSTDIR\data\opencc"
   RMDir /REBOOTOK "$INSTDIR\data\preview"
   RMDir /REBOOTOK "$INSTDIR\data"
   RMDir /REBOOTOK "$INSTDIR"
