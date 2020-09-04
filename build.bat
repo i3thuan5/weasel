@@ -59,7 +59,6 @@ set build_option=/t:Build
 set build_boost=0
 set build_boost_variant=release
 set build_data=0
-set build_opencc=0
 set build_hant=1
 set build_rime=0
 set clean_rime=0
@@ -83,7 +82,6 @@ if "%1" == "clean" (
 )
 if "%1" == "boost" set build_boost=1
 if "%1" == "data" set build_data=1
-if "%1" == "opencc" set build_opencc=1
 if "%1" == "hant" set build_hant=1
 if "%1" == "rime" set build_rime=1
 if "%1" == "librime" set build_rime=1
@@ -91,7 +89,6 @@ if "%1" == "installer" set build_installer=1
 if "%1" == "all" (
   set build_boost=1
   set build_data=1
-  set build_opencc=1
   set build_hant=1
   set build_rime=1
   set build_installer=1
@@ -114,6 +111,7 @@ if %build_boost% == 1 (
 
 if %build_rime% == 1 (
   cd %WEASEL_ROOT%\librime
+  dir librime\thirdparty\lib\
   if not exist librime\thirdparty\lib\opencc.lib (
     call build.bat thirdparty
     if errorlevel 1 goto error
@@ -132,9 +130,6 @@ if %build_rime% == 1 (
 
 if not exist output\data\essay.txt set build_data=1
 if %build_data% == 1 call :build_data
-
-if not exist output\data\opencc\TSCharacters.ocd set build_opencc=1
-if %build_opencc% == 1 call :build_opencc_data
 
 cd /d %WEASEL_ROOT%
 
@@ -234,18 +229,6 @@ REM copy %WEASEL_ROOT%\librime\thirdparty\bin\zlib1.dll .\
 REM call make_essay.bat
 REM cd %WEASEL_ROOT%
 REM exit /b
-
-:build_opencc_data
-if not exist %WEASEL_ROOT%\librime\thirdparty\share\opencc\TSCharacters.ocd (
-  cd %WEASEL_ROOT%\librime
-  call build.bat thirdparty
-  if errorlevel 1 goto error
-)
-cd %WEASEL_ROOT%
-if not exist output\data\opencc mkdir output\data\opencc
-copy %WEASEL_ROOT%\librime\thirdparty\share\opencc\*.* output\data\opencc\
-if errorlevel 1 goto error
-exit /b
 
 :error
 echo error building weasel...
