@@ -128,7 +128,6 @@ if %build_rime% == 1 (
 )
 
 
-if not exist output\data\essay.txt set build_data=1
 if %build_data% == 1 call :build_data
 
 cd /d %WEASEL_ROOT%
@@ -211,24 +210,10 @@ if %build_x64% == 1 (
 exit /b
 
 :build_data
-REM call :build_essay
 copy %WEASEL_ROOT%\LICENSE.txt output\
 REM copy %WEASEL_ROOT%\README.md output\README.txt
-REM copy %WEASEL_ROOT%\plum\rime-install.bat output\
-REM set plum_dir=plum
-set rime_dir=output/data
-REM "%BASH_ROOT%\bash.exe" plum/rime-install %WEASEL_BUNDLED_RECIPES%
 REM if errorlevel 1 goto error
 exit /b
-
-REM :build_essay
-REM rem essay.kct is deprecated.
-REM cd %WEASEL_ROOT%\plum
-REM copy %WEASEL_ROOT%\librime\thirdparty\bin\kctreemgr.exe .\
-REM copy %WEASEL_ROOT%\librime\thirdparty\bin\zlib1.dll .\
-REM call make_essay.bat
-REM cd %WEASEL_ROOT%
-REM exit /b
 
 :error
 echo error building weasel...
